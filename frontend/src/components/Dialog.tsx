@@ -53,24 +53,22 @@ const Dialog = (props: Props) => {
 export default Dialog
 
 const Modal = styled.dialog`
-    padding: 2rem;
+    padding: 1rem 0;
     border: 0;
     border-radius: 0.5rem;
-    border-radius: 1rem;
     position: fixed;
-    box-shadow: hsl(0 0% 0% / 10%) 0 0 0.5rem 0.25rem;
-    border: 1px solid #ccc;
+    background: #cccccc;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
   &::backdrop {
-    background: rgba(0, 0, 0, 0.5);
+    background: white;
   }
 `
 
 const CloseBtn = styled.div`
   float: right;
-  padding: 0 0 1rem 1rem;
+  padding: 0 1rem 1rem 1rem;
   cursor: pointer;
 `

@@ -10,7 +10,7 @@ interface Props {
 const QRCode = (props: Props) => {
     const { id, link } = props
     return (
-        <div>
+        <Container>
             <BackLink>Back to Class List</BackLink>
             <Title>Join 302 Science</Title>
             <Info>
@@ -18,11 +18,15 @@ const QRCode = (props: Props) => {
                 <CopyToClipboardButton content="Link" value={link} />
             </Info>
             <QRCodeSVG size={400} value={link} />
-        </div>
+        </Container>
     )
 }
 
 export default QRCode
+
+const Container = styled.div`
+    margin:0 2rem
+`
 
 const BackLink = styled.p`
     text-decoration: none;
