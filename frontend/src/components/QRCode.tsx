@@ -17,7 +17,7 @@ const QRCode = (props: Props) => {
                 <CopyToClipboardButton content={`ID: ${id}`} value={id} />
                 <CopyToClipboardButton content="Link" value={link} />
             </Info>
-            <QRCodeSVG size={400} value={link} />
+            <QRCodeWraper size={400} value={link} />
         </Container>
     )
 }
@@ -25,13 +25,13 @@ const QRCode = (props: Props) => {
 export default QRCode
 
 const Container = styled.div`
-    margin:0 2rem
+    margin: 2rem 2rem
 `
 
 const BackLink = styled.p`
     text-decoration: none;
     color: black;
-    font-size:0.5rem
+    font-size:0.6rem
 `
 
 const Title = styled.p`
@@ -43,4 +43,8 @@ const Info = styled.div`
     display: flex;
     align-items: center;
     margin: 0 0 1rem 0;
+`
+const QRCodeWraper = styled(QRCodeSVG)`
+    padding: 1rem;
+    background-color: white;
 `

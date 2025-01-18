@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import styled from "styled-components"
+import { useSelector } from "react-redux"
 import StudentList from './StudentList'
 import StudentGroup from './StudentGroup'
+import { getName, getActiveStudentCount, getTotalStudentCount } from "../store/student"
 
 const ClassRoom = () => {
 
@@ -10,10 +12,20 @@ const ClassRoom = () => {
     { id: 2, name: 'Group' }
   ]
 
+  const name = useSelector(getName)
+  const activeCount = useSelector(getActiveStudentCount)
+  const totalCount = useSelector(getTotalStudentCount)
+
   const [tabId, setTabId] = useState(1)
 
   return (
-    <TabContainer>
+
+    <div>
+      <Header>
+        <p>{name}</p>
+        <p>{`${activeCount}/${totalCount}`}</p>
+      </Header>
+
       <NavTab>
         {tabs.map((tab) => (
           <Tab
@@ -30,16 +42,21 @@ const ClassRoom = () => {
         {tabId === 1 && <StudentList />}
         {tabId === 2 && <StudentGroup />}
       </Content>
-    </TabContainer>
+    </div>
+
   )
 }
 
 export default ClassRoom
 
-const TabContainer = styled.div`
-  width: 800px;
-  min-height: 500px;
-  margin: 0 ;
+const Header = styled.div`
+  display: flex;
+  margin: 0 0 1rem 2rem;
+  font-weight: bold;
+
+  p {
+    margin-right: 1rem;
+  }
 `
 
 const NavTab = styled.ul`

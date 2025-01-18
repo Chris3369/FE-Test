@@ -53,7 +53,7 @@ const Dialog = (props: Props) => {
 export default Dialog
 
 const Modal = styled.dialog`
-    padding: 1rem 0;
+    padding: 1rem 0 0 0;
     border: 0;
     border-radius: 0.5rem;
     position: fixed;
@@ -63,7 +63,7 @@ const Modal = styled.dialog`
     transform: translate(-50%, -50%);
 
   &::backdrop {
-    background: white;
+    background: #e6e6e6;
   }
 `
 
