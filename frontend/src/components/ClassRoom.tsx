@@ -70,7 +70,7 @@ export default ClassRoom
 const Header = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 0 1rem 2rem;
+  margin: 1.5rem 2rem;
   font-weight: bold;
 
   h3 {
@@ -92,6 +92,7 @@ const Tab = styled.li<{ $active?: boolean }>`
   background: ${props => props.$active ? 'white' : '#b3b3b3'};
   border-radius: 5px 5px 0 0;
   cursor: pointer;
+  margin-right: 0.5rem;
 `
 
 const Ellipsis = styled.li`
@@ -116,10 +117,15 @@ const Content = styled.div`
 
 const Menu = styled.ul`
   list-style: none;
-  padding: 0;
-  margin: 0;
+  line-height: 2rem;
 
   li {
+      font-weight: normal;
+      color: grey;
       cursor: pointer;
+
+      &:hover {
+          color: black;
+      }
   }
 `

@@ -14,7 +14,7 @@ type Response = {
 interface Action {
     type: string
     payload: {
-        id: string
+        id: number
     }
 }
 

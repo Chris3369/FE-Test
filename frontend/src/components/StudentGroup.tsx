@@ -37,7 +37,7 @@ const StudentGroup = () => {
 export default StudentGroup
 
 const Container = styled.div`
-  padding: 1rem
+  padding: 0 1rem 1rem 1rem
 `
 
 const GroupContainer = styled.div`

@@ -44,7 +44,7 @@ interface StyleProps {
 }
 
 const Container = styled.div<StyleProps>`
-    background: ${props => props.$active ? props.$increment ? "green" : "red" : "#b3b3b3"};
+    background: ${props => props.$active ? props.$increment ? "#00cc00" : "red" : "#b3b3b3"};
     color: white;
     font-size: 14px;
     width: 2rem;

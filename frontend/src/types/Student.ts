@@ -1,5 +1,5 @@
 export default interface Student {
-    id: string
+    id: number
     name: string
     active: boolean
     score: number
