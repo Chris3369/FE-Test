@@ -39,6 +39,7 @@ const BackLink = styled.p`
 
 const Title = styled.p`
     color: black;
+    font-weight: bold;
     margin: 0.5rem 0;
 `
 
@@ -46,6 +47,10 @@ const Info = styled.div`
     display: flex;
     align-items: flex-end;
     margin: 0 0 1rem 0;
+
+    P {
+        font-weight: bold;
+    }
 `
 const QRCodeWraper = styled(QRCodeSVG)`
     padding: 1rem;

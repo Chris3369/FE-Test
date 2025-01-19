@@ -43,7 +43,7 @@ const Button = styled.div`
 
     p {
         line-height: 1.5rem;
-        margin-right: 0.3rem;
+        margin-right: 0.5rem;
         padding: 0.3rem 0 0 0;
     }
 `

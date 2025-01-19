@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-      font-family: 'Verdana', sans-serif;
+      font-family: 'Arial', sans-serif;
       font-weight: 400;
       background: ${({ theme }) => theme.colors.body};
   }

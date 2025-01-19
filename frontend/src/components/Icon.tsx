@@ -20,6 +20,6 @@ export default Icon
 
 const Container = styled.span<{ $bcColor?: string }>`
     background-color: ${props => props.$bcColor};
-    padding: 0.3rem 0.4rem;
+    padding: 5px 6px;
     border-radius: 0.3rem;
 `

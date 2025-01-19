@@ -57,14 +57,14 @@ const Modal = styled.dialog`
     border: 0;
     border-radius: 0.5rem;
     position: fixed;
-    background: #cccccc;
+    background: #d9d9d9;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-  &::backdrop {
-    background: #e6e6e6;
-  }
+    &::backdrop {
+        background: #e6e6e6;
+    }
 `
 
 const CloseBtn = styled.div`

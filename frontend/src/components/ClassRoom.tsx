@@ -6,7 +6,7 @@ import StudentList from './StudentList'
 import StudentGroup from './StudentGroup'
 import { getName, getActiveStudentCount, getTotalStudentCount } from "../store/student"
 import Icon from './Icon'
-
+import Popup from './Popup'
 
 const ClassRoom = () => {
 
@@ -20,6 +20,16 @@ const ClassRoom = () => {
   const totalCount = useSelector(getTotalStudentCount)
 
   const [tabId, setTabId] = useState(1)
+
+  const renderMenu = () => {
+    return (
+      <Menu>
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+      </Menu>
+    )
+  }
 
   return (
 
@@ -40,6 +50,10 @@ const ClassRoom = () => {
             {tab.name}
           </Tab>
         ))}
+
+        <Ellipsis>
+          <Popup children={renderMenu()} />
+        </Ellipsis>
       </NavTab>
 
       <Content>
@@ -70,7 +84,7 @@ const NavTab = styled.ul`
   margin-left: 2rem;
   display: flex;
 `
-const Tab = styled.li<{ $active: boolean }>`
+const Tab = styled.li<{ $active?: boolean }>`
   padding: 0 20px;
   line-height: 50px;
   font-weight: bold;
@@ -79,6 +93,16 @@ const Tab = styled.li<{ $active: boolean }>`
   border-radius: 5px 5px 0 0;
   cursor: pointer;
 `
+
+const Ellipsis = styled.li`
+  padding: 0 20px;
+  line-height: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 2rem;
+  margin-left:auto
+`
+
 const Content = styled.div`
   display: flex;
   width: 100%;
@@ -88,4 +112,14 @@ const Content = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-top: none;
   border-top-width: 0;
+`
+
+const Menu = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+      cursor: pointer;
+  }
 `
