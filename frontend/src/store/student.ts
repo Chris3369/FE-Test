@@ -71,6 +71,7 @@ export const getStudents = (state: RootState) => state.student.data.students
 export const getStatus = (state: RootState) => state.student.status
 export const getActiveStudentCount = (state: RootState) => state.student.data.students.filter(student => student.active).length
 export const getTotalStudentCount = (state: RootState) => state.student.data.students.length
+
 export const { increment, decrement } = studentSlice.actions
 
 export default studentSlice.reducer

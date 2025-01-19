@@ -23,7 +23,7 @@ const StudentList = () => {
 
   return (
     <Container>
-      {students.map(student=> (
+      {students.map(student => (
         <Card key={student.id} {...student} />
       ))}
     </Container>
@@ -36,8 +36,6 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
-  align-items: center;
   margin: 0 auto;
   padding: 1rem;
 `

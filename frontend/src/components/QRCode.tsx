@@ -25,13 +25,16 @@ const QRCode = (props: Props) => {
 export default QRCode
 
 const Container = styled.div`
-    margin: 2rem 2rem
+    margin: 0.5rem 2rem 2rem 2rem
 `
 
 const BackLink = styled.p`
-    text-decoration: none;
     color: black;
-    font-size:0.6rem
+    font-size:0.6rem;
+
+    &:before {
+        content: "\\276E    ";
+    }
 `
 
 const Title = styled.p`
@@ -41,7 +44,7 @@ const Title = styled.p`
 
 const Info = styled.div`
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     margin: 0 0 1rem 0;
 `
 const QRCodeWraper = styled(QRCodeSVG)`

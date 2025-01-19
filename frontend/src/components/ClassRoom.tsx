@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import styled from "styled-components"
 import { useSelector } from "react-redux"
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import StudentList from './StudentList'
 import StudentGroup from './StudentGroup'
 import { getName, getActiveStudentCount, getTotalStudentCount } from "../store/student"
+import Icon from './Icon'
+
 
 const ClassRoom = () => {
 
@@ -22,7 +25,8 @@ const ClassRoom = () => {
 
     <div>
       <Header>
-        <p>{name}</p>
+        <h3>{name}</h3>
+        <Icon icon={faUser} />
         <p>{`${activeCount}/${totalCount}`}</p>
       </Header>
 
@@ -51,10 +55,11 @@ export default ClassRoom
 
 const Header = styled.div`
   display: flex;
+  align-items: center;
   margin: 0 0 1rem 2rem;
   font-weight: bold;
 
-  p {
+  h3 {
     margin-right: 1rem;
   }
 `

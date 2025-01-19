@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import styled from "styled-components"
+import Icon from './Icon';
 
 const useCopyToClipboard = () => {
     const [isCopied, setIsCopied] = useState(false);
@@ -29,7 +29,7 @@ const CopyToClipboardButton = ({ content, value }: Props) => {
     return (
         <Button onClick={() => copyToClipboard(value)}>
             <p>{content}</p>
-            <FontAwesomeIcon color="#3399ff" icon={faCopy} />
+            <Icon icon={faCopy} color='white' bcColor='#3399ff' />
         </Button>
     );
 };
@@ -42,6 +42,8 @@ const Button = styled.div`
     margin-right: 1.5rem;
 
     p {
-        margin-right: 0.2rem;
+        line-height: 1.5rem;
+        margin-right: 0.3rem;
+        padding: 0.3rem 0 0 0;
     }
 `

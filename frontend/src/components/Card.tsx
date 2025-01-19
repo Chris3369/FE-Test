@@ -26,10 +26,6 @@ const Container = styled.div`
     background: white;
     border-radius: 0.5rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
-
-    &:hover {
-        cursor: pointer;
-    }
 `
 
 const Header = styled.div<{ $active: boolean }>`
