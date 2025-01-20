@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from "react-redux"
 import styled from "styled-components"
-import { useSelector } from "react-redux"
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import StudentList from './StudentList'
 import StudentGroup from './StudentGroup'
-import { getName, getActiveStudentCount, getTotalStudentCount } from "../store/student"
+import { fetchStudents, getStudents, getStatus, getName, getActiveStudentCount, getTotalStudentCount } from "../store/student"
 import Icon from './Icon'
 import Popup from './Popup'
-
+import { AppDispatch } from "../store"
 const ClassRoom = () => {
 
   const tabs = [
@@ -15,11 +15,21 @@ const ClassRoom = () => {
     { id: 2, name: 'Group' }
   ]
 
+  const students = useSelector(getStudents)
+  const status = useSelector(getStatus)
   const name = useSelector(getName)
   const activeCount = useSelector(getActiveStudentCount)
   const totalCount = useSelector(getTotalStudentCount)
 
   const [tabId, setTabId] = useState(1)
+
+  const dispatch = useDispatch<AppDispatch>()
+
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchStudents())
+    }
+  }, [status, dispatch])
 
   const renderMenu = () => {
     return (
@@ -56,10 +66,12 @@ const ClassRoom = () => {
         </Ellipsis>
       </NavTab>
 
-      <Content>
-        {tabId === 1 && <StudentList />}
-        {tabId === 2 && <StudentGroup />}
-      </Content>
+      {students.length > 0 && (
+        <Content>
+          {tabId === 1 && <StudentList />}
+          {tabId === 2 && <StudentGroup />}
+        </Content>
+      )}
     </div>
 
   )
@@ -70,8 +82,9 @@ export default ClassRoom
 const Header = styled.div`
   display: flex;
   align-items: center;
-  margin: 1.5rem 2rem;
+  margin: 0 0 1rem 2rem;
   font-weight: bold;
+  height: 2rem;
 
   h3 {
     margin-right: 1rem;
@@ -86,7 +99,7 @@ const NavTab = styled.ul`
 `
 const Tab = styled.li<{ $active?: boolean }>`
   padding: 0 20px;
-  line-height: 50px;
+  line-height: 2rem;
   font-weight: bold;
   color: ${props => props.$active ? '#3399ff' : 'black'};
   background: ${props => props.$active ? 'white' : '#b3b3b3'};
@@ -97,7 +110,7 @@ const Tab = styled.li<{ $active?: boolean }>`
 
 const Ellipsis = styled.li`
   padding: 0 20px;
-  line-height: 50px;
+  line-height: 2rem;
   font-weight: bold;
   cursor: pointer;
   margin-right: 2rem;
@@ -106,8 +119,6 @@ const Ellipsis = styled.li`
 
 const Content = styled.div`
   display: flex;
-  width: 100%;
-  heught: 100%;
   background: white;
   border-radius: 10px 10px 0 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

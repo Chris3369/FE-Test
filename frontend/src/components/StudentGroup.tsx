@@ -37,7 +37,13 @@ const StudentGroup = () => {
 export default StudentGroup
 
 const Container = styled.div`
-  padding: 0 1rem 1rem 1rem
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 37rem;
+  width:100%;
+  overflow-y: scroll;
 `
 
 const GroupContainer = styled.div`

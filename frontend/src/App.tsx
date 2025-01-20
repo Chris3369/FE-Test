@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { ThemeProvider, createGlobalStyle, styled } from 'styled-components'
-import Dialog from './components/Dialog'
 import QRCode from './components/QRCode'
 import ClassRoom from './components/ClassRoom'
+
+import Frame from './components/Frame'
 
 const theme = {
   colors: {
@@ -12,8 +13,8 @@ const theme = {
 
 const App = () => {
 
-  const [open1, setOpen1] = useState(false)
-  const [open2, setOpen2] = useState(false)
+  const [open1, setOpen1] = useState(true)
+  const [open2, setOpen2] = useState(true)
 
   const ID = "X58E9647"
   const LINK = "https://www.classswift.viewsonic.io/"
@@ -22,17 +23,17 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
-        <Button onClick={() => setOpen1(true)}>QRCode</Button>
-        <Button onClick={() => setOpen2(true)}>ClassRoom</Button>
+        {open1 && (
+          <Frame cb={() => setOpen1(false)}>
+            <QRCode id={ID} link={LINK} />
+          </Frame>
+        )}
 
-        <Dialog open={open1} onClose={() => setOpen1(false)}>
-          <QRCode id={ID} link={LINK} />
-        </Dialog>
-
-        <Dialog open={open2} onClose={() => setOpen2(false)}>
-          <ClassRoom />
-        </Dialog>
-
+        {open2 && (
+          <Frame cb={() => setOpen2(false)}>
+            <ClassRoom />
+          </Frame>
+        )}
       </Container>
     </ThemeProvider>
   )
@@ -56,14 +57,8 @@ const GlobalStyle = createGlobalStyle`
 
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   height: 100vh;
-`
-
-const Button = styled.button`
-  margin: 0 10px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
 `
