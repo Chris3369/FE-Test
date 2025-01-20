@@ -46,4 +46,9 @@ const Button = styled.div`
         margin-right: 0.5rem;
         padding: 0.3rem 0 0 0;
     }
+
+    &:hover {
+        opacity: 0.6;
+        color: white;
+    }
 `
